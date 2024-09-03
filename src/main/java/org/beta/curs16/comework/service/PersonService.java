@@ -14,6 +14,10 @@ public class PersonService {
         this.persons = new ArrayList<>(persons);
     }
 
+    public PersonService() {
+        this.persons = new ArrayList<>();
+    }
+
     public List<String> getAllNames() {
         return persons.stream()
                 .map(person -> person.firstName() + " " + person.lastName())
