@@ -5,7 +5,6 @@ import org.beta.curs16.comework.model.Person;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PersonService {
 
@@ -65,28 +64,28 @@ public class PersonService {
 
     public List<String> getAllFirstNamesUniquely(){
         return persons.stream()
-                .map(person -> person.firstName())
+                .map(Person::firstName)
                 .distinct()
                 .toList();
     }
 
     public List<Person> sortByFirstName(){
         return persons.stream()
-                .sorted(Comparator.comparing(person -> person.firstName()))
+                .sorted(Comparator.comparing(Person::firstName))
                 .toList();
     }
 
     public List<Person> sortByLastName(){
         return persons.stream()
-                .sorted(Comparator.comparing(person -> person.lastName()))
+                .sorted(Comparator.comparing(Person::lastName))
                 .toList();
     }
 
-    public List<Person> sortByNameAndAge(){
+    public List<Person> sortByNameAndAge() {
         return persons.stream()
-                .sorted(Comparator.comparing(person -> person.firstName()))
-                .sorted(Comparator.comparing(person -> person.lastName()))
-                .sorted(Comparator.comparing(person -> person.age()))
+                .sorted(Comparator.comparing(Person::firstName)
+                        .thenComparing(Person::lastName)
+                        .thenComparingInt(Person::age))
                 .toList();
     }
 }
