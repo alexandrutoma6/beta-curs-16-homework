@@ -12,18 +12,25 @@ public class Main {
         List<Person> list = generatePersonList();
         PersonService service = new PersonService(list);
 
-//        System.out.println(service.getAllNames());
-//        System.out.println(service.getMajorPersons());
-//        System.out.println(service.getPeopleFromOradea());
-//        System.out.println(service.getPeopleFromOradeaAndCluj());
+        System.out.println(service.getAllNames());
+        System.out.println(service.getMajorPersons());
+        System.out.println(service.getPeopleFromOradea());
+        System.out.println(service.getPeopleFromOradeaAndCluj());
         System.out.println(service.getAllNamesCapitalized());
+        System.out.println(service.getNamesWithAbreviatedLastName());
+        System.out.println(service.getPersonsBetweenAges(18,40));
+        System.out.println(service.getPersonsThatFirstNameStartsWithA());
+        System.out.println(service.getAllFirstNamesUniquely());
+        System.out.println(service.sortByFirstName());
+        System.out.println(service.sortByLastName());
+        System.out.println(service.sortByNameAndAge());
     }
 
     private static List<Person> generatePersonList() {
         List<Person> list = new ArrayList<>();
         list.add(new Person("John", "Doe", 28, "New York"));
-        list.add(new Person("Jane", "Smith", 32, "Los Angeles"));
-        list.add(new Person("Alice", "Johnson", 24, "Oradea"));
+        list.add(new Person("Mihai", "Smith", 32, "Los Angeles"));
+        list.add(new Person("John", "Johnson", 24, "Oradea"));
         list.add(new Person("Bob", "Brown", 45, "Houston"));
         list.add(new Person("Charlie", "Williams", 35, "Phoenix"));
         list.add(new Person("David", "Jones", 29, "Philadelphia"));
@@ -40,7 +47,7 @@ public class Main {
         list.add(new Person("Oscar", "Lopez", 33, "Cluj"));
         list.add(new Person("Paul", "Hill", 38, "Seattle"));
         list.add(new Person("Quinn", "Scott", 29, "Cluj"));
-        list.add(new Person("Rose", "Green", 41, "Washington"));
+        list.add(new Person("Anna", "Green", 41, "Washington"));
 
         return list;
     }
